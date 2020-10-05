@@ -4,10 +4,6 @@
 
 -Features for next release
 
-## 2.17.1
-
--Features for next release
-
 ## 2.17.0
 
 ### Bug fixes
