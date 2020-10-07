@@ -484,8 +484,10 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                 if (url) {
                     [self processURL:url forRedirection:NO];
                 } else {
-                    [self signOutLocallyAndClearLastKnownUser];
                     [self dismissSafariViewControllerAndCompleteSignOut:error];
+                    if (![error.domain.capitalizedString.lowercaseString isEqualToString:@"com.apple.safariservices.authentication"]) {
+                      [self signOutLocallyAndClearLastKnownUser];
+                    }
                 }
             }];
             [self.sfAuthSession start];
